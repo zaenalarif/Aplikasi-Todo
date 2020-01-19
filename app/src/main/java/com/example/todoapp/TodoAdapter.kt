@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todoapp.database.Todo
 import com.example.todoapp.databinding.ListItemBinding
 import kotlin.time.measureTime
 
@@ -28,7 +29,7 @@ class TodoAdapter(private val viewModel: TodoViewModel) :
 
         // menghapus
         holder.delBtn.setOnClickListener{
-            viewModel.removeTodo(holder.adapterPosition)
+            viewModel.removeTodo(getItem(holder.adapterPosition))
 //            notifyItemRemoved(position)
 //            notifyItemChanged(position, viewModel.todos.value!!.size)
         }
